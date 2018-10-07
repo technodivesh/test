@@ -1,0 +1,69 @@
+<div  id="spmlresponseAnal" class="panel-portal" ng-controller="spmlresponseAnalCtrl">
+    <h1 class="titlebar ng-binding"> SPML Response Analysis </h1>
+    <div class="grid span-32 vlead-1 vtrail-1-half">
+        <div class="span-14">
+            <div class="span-10 vspan-2">
+                <label class="align-left">Number of PGWs:</label>
+            </div>
+            <div class="span-4" >
+                <form name="pgwnum">
+                    <select id="selectbox" ng-required="true" ng-model="pgwnumber" name="number" required>
+                        <option value="{{n+1}}" ng-repeat="n in [] | range:8">{{n+1}}</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div  class="text-center buttonbar">
+        <button ng-click="doDisplayResponse()" ng-disabled="!pgwnumber">Display Report</button>
+        <button ng-click="reset()">Reset</button>
+    </div>
+
+    <div ng-show="responses">
+    <div>
+        <input type="text" class="text" name="" placeholder="Search..." ng-model="searchText">
+    </div>
+        <table class="standard" >
+        <thead>
+         <tr>
+            <th><span class="C">Request File</span></th>
+            <th><span class="C">Response File</span></th>
+            <th><span class="B">Total Records</span></th>
+            <th><span class="B">Success Count</span></th>
+            <th><span class="B">Error Count</span></th>
+            <th><span class="B">Error Log File</span></th>
+            <th><span class="B">Response Status</span></th>
+            <th><span class="B">Processing Start Time</span></th>
+            <th><span class="B">Processing End Time</span></th>
+        </tr>
+        </thead>
+        <tbody style="border: 1px">
+        <tr ng-repeat="resp in responses | filter:searchText">
+         <td>{{resp.requestFile }}</td>
+         <td>{{resp.responseFile }}</td>
+         <td>{{resp.totRec }}</td>
+         <td>{{resp.successCnt }}</td>
+         <td>{{resp.errorCnt }}</td>
+         <td><a  class="cell" ui-sref="displayerror({filename:resp.errorLogFile})" >{{resp.errorLogFile }}</a></td>
+         <td>{{resp.respStatus }}</td>
+         <td><span>{{resp.procStartTme | date}}</span></td>
+         <td>{{resp.procEndTme }}</td>
+        </tr>
+        </tbody>
+ </table>               
+</div>
+
+</div>
+<!-- <script src="static/js/jquery.min.js"></script> -->
+<script src="static/js/nsnkit.js"></script>
+<script src="static/js/backgrounds.js"></script>
+<script src="static/js/panel.js"></script>
+<script src="static/js/buttons.js"></script>
+<script src="static/js/textinput.js"></script>
+<!-- <script src="static/js/AngularJS/angular.min.js"></script>
+<script src="static/js/AngularJS/angular-ui-router.js"></script>
+<script src="static/js/AngularJS/angular-route.min.js"></script>
+ -->
+
+

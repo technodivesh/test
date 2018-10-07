@@ -1,0 +1,37 @@
+<div  id="spmlresponseAnal" class="panel-portal" ng-controller="spmlresponseAnalCtrl">
+    <h1 class="titlebar ng-binding"> SPML Generation Error File</h1>
+
+
+    <input type="text" class="text" ng-model="serachText" placeholder="Search...">
+    <div >
+        <table class="standard">
+            <thead>
+           <tr>
+            <th><span>Identifier</span></th>
+            <th><span>Source Attribute</span></th>
+            <th><span>Target Attribute</span></th>
+            <th><span>Reason</span></th>
+        </tr></thead>
+        <tbody>
+        <tr ng-repeat="resp in responses | filter:serachText">
+            <td><div class="cell">{{resp.identifier}}</div></td>
+            <td><div class="cell">{{resp.sourceAttr}}</div></td>
+            <td><div class="cell">{{resp.targetAttr}}</div></td>
+            <td><div class="cell">{{resp.reason}}</div></td>
+        </tr>
+        </tbody>
+        </table>                
+</div>
+
+</div>
+
+<!-- <script src="static/js/jquery.min.js"></script> -->
+<script src="static/js/nsnkit.js"></script>
+<script src="static/js/backgrounds.js"></script>
+<script src="static/js/panel.js"></script>
+<script src="static/js/buttons.js"></script>
+<script src="static/js/textinput.js"></script>
+<!-- <script src="static/js/AngularJS/angular.min.js"></script>
+<script src="static/js/AngularJS/angular-ui-router.js"></script>
+<script src="static/js/AngularJS/angular-route.min.js"></script> -->
+<!-- style="border-collapse: separate; border-collapse: separate;" border="1" -->

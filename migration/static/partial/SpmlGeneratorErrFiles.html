@@ -1,0 +1,34 @@
+<div  id="spmlgeneratorerr" class="panel-portal" >
+	<h1 class="titlebar ng-binding"> SPML Generator Error Files</h1>
+	<div>
+	<input type="text" class="text" placeholder="Search..." ng-model="searchText">
+	<table class="standard" >
+		<thead>
+			<tr >
+				<th> Error File Name </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="resp in responses | filter:searchText">
+				<td>
+					<div class="cell">
+						<a ui-sref="displaygenerror({filename:resp})" >{{resp}}</a>
+					</div>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	</div>
+</div>
+
+
+<!-- <script type="text/javascript" src="static/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="static/js/nsnkit.js"></script>
+<script type="text/javascript" src="static/js/backgrounds.js"></script>
+<script type="text/javascript" src="static/js/panel.js"></script>
+<script type="text/javascript" src="static/js/buttons.js"></script>
+<script type="text/javascript" src="static/js/textinput.js"></script>
+
+
+

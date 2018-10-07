@@ -1,0 +1,46 @@
+<h1>Home Page</h1>
+
+<div ng-controller="logoutController">
+	<a ng-click='logout()' class="btn btn-default">Logout</a>
+</div>
+
+{{myname}}
+
+HHHHHHH
+
+<div class="grid span-42" id="applicationsNavigationView" >
+	<div class="span-8 panel vertical-menu" >
+		<ul class="tree">
+			<li class="branch expanded">
+				<a href="#">Migration Execution</a>
+				<ul>
+					<li><a id="spmlgenerator" ui-sref="spmlgenerator">Generate SPML Request</a></li>
+					<li><a id="transfertopgw" ui-sref="transfertopgw">Transfer SPML files to PGW</a></li>
+					<li><a id="transferfrompgw" ui-sref="transferfrompgw">Transfer SPML Response from PGW</a></li>
+					<li><a id="transferfrompgw" ui-sref="mytest">Test Page</a></li>
+				</ul>
+			</li>
+			<li class="branch expanded">
+				<a href="#">Migration Reports</a>
+				<ul>
+					<li><a id="spmlgeneratorerr" ui-sref="spmlgeneratorerr">SPML Generation Report</a></li>
+					<li><a id="spmlresponseAnal" ui-sref="spmlresponseAnal">SPML Response Analysis</a></li>
+				</ul>
+			</li>
+			<li ng-show="false" class="branch expanded">
+				<a href="#">Developer Only</a>
+				<ul>
+					<li><a id="mapping" ui-sref="mapping">Mapping File</a></li>
+					<li><a id="validation" ui-sref="validation">Validation File</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="span-32 vpush-3" style="margin-left: 20px;">
+		<div ui-view="home-uv"></div>
+		hello
+	</div>
+
+</div>
+
+

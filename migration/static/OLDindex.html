@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en" style="height: 100%">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<meta name="viewport" content="width=1158" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<link rel="stylesheet" type="text/css" href="static/css/advantage.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/guide.css"/>
+
+
+		<title>NOKIA MIGRATION TOOL</title>
+		<script type="text/javascript" src="static/js/AngularJS/angular.js"></script>
+		<script type="text/javascript" src="static/js/AngularJS/angular-ui-router.js"></script>
+		<script type="text/javascript" src="static/js/AngularJS/angular-route.js"></script>
+		<script type="text/javascript" src="static/js/AngularJS/angular-resource.js"></script>
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<!-- <script type="text/javascript" src="static/js/jquery-3.3.1.js"></script> -->
+		<script type="text/javascript" src="static/js/nsnkit.js"></script>
+		<script type="text/javascript" src="static/js/backgrounds.js"></script>
+		<script type="text/javascript" src="static/js/navigation.js"></script>
+		<script type="text/javascript" src="static/js/tree.js"></script>
+		<script type="text/javascript" src="static/js/panel.js"></script>
+		
+	    <script type="text/javascript" src="static/js/buttons.js"></script>
+	    <!-- <script type="text/javascript" src="static/js/ngIpAddress.min.js"></script> -->
+		
+
+			
+		<!-- <script type="text/javascript" src="static/js/CustomJS/homePageCustomJS.js" ></script> -->
+		<!-- <script type="text/javascript" src="static/js/CustomJS/Navigator.js"></script> -->
+
+		<script src="static/app.js" type="text/javascript"></script>
+	    <script src="static/service.js" type="text/javascript"></script>
+	    <script src="static/controller.js" type="text/javascript"></script>
+
+		<style>
+			body{
+				background-image: url('static/images/background-radial-gradient.jpg');
+			}
+		</style>
+	</head>
+
+
+<body  > 
+
+	<div class="navigation" >
+		<div class="primary" >
+			<div class="logo"></div>
+			<h1>NOKIA MIGRATION TOOL</h1>
+			<div class="controls">
+                    <div class="links">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <span class="icon user"></span>
+                                    {{name}}
+                                </a>
+                            </li>
+                            <li>|</li>
+                            <li ng-controller="logoutController">
+                            	<a ng-click='logout()'>Logout</a>
+                            </li>
+                        </ul>
+                    </div>                   
+                </div>
+			</div>
+			<div class="secondary single-tab">
+				<div class="title">
+
+				</div>
+			</div>
+		</div>
+	
+	<div class="container span-32 vpush-3" style="margin: 20px;">
+      <div ng-view></div>
+    </div>
+
+
+	<!-- <script type="text/javascript" src="static/js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="static/js/nsnkit.js"></script>
+    <script type="text/javascript" src="static/js/navigation.js"></script>
+    <script type="text/javascript" src="static/js/panel.js"></script>
+    <script type="text/javascript" src="static/js/buttons.js"></script>
+    <script type="text/javascript" src="static/js/tabs.js"></script>
+    <script type="text/javascript" src="static/js/textarea.js"></script>
+    <script type="text/javascript" src="static/js/tabbuttons.js"></script>
+    <script type="text/javascript" src="static/js/progressbar.js"></script>
+    <script type="text/javascript" src="static/js/backgrounds.js"></script>
+    <!-- <script type="text/javascript" src="static/js/ngIpAddress.min.js"></script> -->
+
+
+		
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- //login.html -->
+
+<div class="grid span-30 myvlead-1 myvtrail-1-half">
+
+    <form name="loginForm" id="loginForm" ng-submit="loginSubmit(loginForm)" novalidate>
+
+      
+      <div class="container">
+        <div>
+            <label class="span-5" title="Username" class="align-left">Username:</label>
+            <input style="width:120px" type="text" data-ng-model="username" name="username" autocomplete="off"  required  />
+            <span ng-show="loginForm.$submitted && loginForm.username.$invalid && loginForm.username.$untouched">Required</span>
+            <span ng-show="loginForm.username.$invalid && loginForm.username.$touched">Invalid</span>
+            <span ng-show="loginForm.username.$valid && loginForm.username.$touched">&#10004;</span>
+        </div>
+        <div>
+            <label class="span-5" title="Password" class="align-left">Password:</label>
+            <input style="width:120px" type="password"  data-ng-model="password" name="password" id="password" ng-minlength="3" required  />
+            <span class="ad_error">
+            <span ng-if="loginForm.$submitted && loginForm.password.$invalid && loginForm.password.$untouched">Required</span>
+            <span ng-if="loginForm.password.$invalid && loginForm.password.$touched">Invalid</span></span>
+            <span ng-if="loginForm.password.$valid && loginForm.password.$touched">&#10004;</span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+            <!-- <div><span class="text-danger" style="color:red">{{ error }}</span> </div> -->
+            <div><span class="text-danger" style="color:red">{{ errorMessage }}</span> </div>
+        </div>
+      </div>
+    </form>
+</div>
+

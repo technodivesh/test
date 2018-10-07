@@ -1,0 +1,24 @@
+<div  id="spmlresult" class="panel-portal">
+    <h1 class="titlebar ng-binding"> Result Page </h1>
+
+ 
+    <div>
+        <span class="text" >Result: </span>
+        <table class="standard">
+            <thead>
+            <tr>
+                <th ng-repeat="key in keys">{{key}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center">
+                <td ng-repeat="value in values">{{value}}</td>
+            </tr>
+            </tbody>
+            
+        </table>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="static/js/buttons.js"></script>

@@ -1,0 +1,64 @@
+
+
+<div  id="transferfrompgw" class="panel-portal">
+    <h1 class="titlebar ng-binding"> Transfer Batch files from PGW </h1>
+    <hr>
+    <div ng-if="frompgw.ShowLoader" class="loader"></div>
+    <div>
+        <span class="ad_message" ng-bind="frompgw.message"></span>
+    </div>
+    <!-- <p class="ruled"></p> -->
+    <div class="ad_error" >
+        <span ng-bind="frompgw.err_message"></span>
+    </div>
+
+    <div >
+        <form name="frompgwForm" ng-submit="frompgw.doTransfer()" novalidate>
+            <div>
+                <label class="align-left">Number of PGWs:</label>
+                <button type="button" ng-click="number=number-1" ng-disabled="number<2">-</button>
+                <input class="text" style="width:20px" type="text" ng-model="number">
+                <button type="button" ng-click="number=number+1" ng-disabled="number>7">+</button>
+
+            </div>
+            <div>
+            </div>
+
+            <div class="text-center buttonbar">
+                <button type="submit">Transfer</button>
+                <button type="button" ng-click="frompgw.reset()">Reset</button>
+            </div>
+        </form>
+
+   </div>
+</div>
+<!-- <script type="text/javascript" src="static/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="static/js/nsnkit.js"></script>
+<script type="text/javascript" src="static/js/backgrounds.js"></script>
+<script type="text/javascript" src="static/js/panel.js"></script>
+<script type="text/javascript" src="static/js/buttons.js"></script>
+<script type="text/javascript" src="static/js/textinput.js"></script>
+
+<!-- <script type="text/javascript" src="static/js/AngularJS/angular.min.js"></script>
+<script type="text/javascript" src="static/js/AngularJS/angular-ui-router.js"></script>
+<script type="text/javascript" src="static/js/AngularJS/angular-route.min.js"></script> -->
+
+
+
+<style>
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #0B6DAF; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    /*margin: 0 auto;*/
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); 
+}
+
+</style>

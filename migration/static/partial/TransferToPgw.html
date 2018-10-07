@@ -1,0 +1,168 @@
+<div  id="transfertopgw" class="panel-portal">
+    <h1 class="titlebar ng-binding"> Transfer Batch files to PGW </h1>
+    <div ng-if="ShowLoader" class="loader"></div>
+    <div>
+        <span class="ad_message" ng-bind="topgw.message"></span>
+    </div>
+    <!-- <p class="ruled"></p> -->
+    <div class="ad_error" >
+        <span ng-show="pgwdetailForm.$dirty && submitted">
+            <span ng-message=required>
+                Please fill the required form fields
+            </span>
+        </span>
+        <span ng-bind="topgw.err_message"></span>
+    </div>
+
+
+    <form name="pgwdetailForm" novalidate ng-submit="topgw.add_new()">
+
+        <div class="grid-container">
+            <div >
+                <label class="span-5" title="IP Address" class="align-left">IP Address:</label>
+                <input style="width:120px" type="text" class="text required" ng-model="ipaddr" name="ipaddr" id="ipaddr" required ng-ip-address />
+                <span class="ad_error">
+                <span ng-if="pgwdetailForm.$submitted && pgwdetailForm.ipaddr.$invalid && pgwdetailForm.ipaddr.$untouched">Required</span>
+                <span ng-if="pgwdetailForm.ipaddr.$invalid && pgwdetailForm.ipaddr.$dirty">Invalid</span></span>
+                <span ng-if="pgwdetailForm.ipaddr.$valid && pgwdetailForm.ipaddr.$touched">Valid</span>
+            </div>
+
+            <div>
+                <label class="span-5" title="Username" class="align-left">Username:</label>
+                <input style="width:120px" type="text" class="text required" ng-model="userName" name="userName" id="userName" ng-minlength="3" required  />
+                <span class="ad_error">
+                <span ng-if="pgwdetailForm.$submitted && pgwdetailForm.userName.$invalid && pgwdetailForm.userName.$untouched">Required</span>
+                <span ng-if="pgwdetailForm.userName.$invalid && pgwdetailForm.userName.$touched">Invalid</span></span>
+                <span ng-if="pgwdetailForm.userName.$valid && pgwdetailForm.userName.$touched">Valid</span>
+                
+            </div>
+
+            <div>
+                <label class="span-5" title="Password" class="align-left">Password:</label>
+                <input style="width:120px" type="password" class="text required" ng-model="passwd" name="passwd" id="passwd" ng-minlength="3" required  />
+                <span class="ad_error">
+                <span ng-if="pgwdetailForm.$submitted && pgwdetailForm.passwd.$invalid && pgwdetailForm.passwd.$untouched">Required</span>
+                <span ng-if="pgwdetailForm.passwd.$invalid && pgwdetailForm.passwd.$touched">Invalid</span></span>
+                <span ng-if="pgwdetailForm.passwd.$valid && pgwdetailForm.passwd.$touched">Valid</span>
+            </div>
+
+            <div>
+                <label class="span-5" title="Tenent" class="align-left">Tenent:</label>
+                <input style="width:120px" type="text" class="text required" ng-model="tenant" name="tenant" id="tenant" required  />
+                <span class="ad_error">
+                <span ng-if="pgwdetailForm.$submitted && pgwdetailForm.tenant.$invalid && pgwdetailForm.tenant.$untouched">Required</span>
+                <span ng-if="pgwdetailForm.tenant.$invalid && pgwdetailForm.tenant.$touched">Invalid</span></span>
+                <span ng-if="pgwdetailForm.tenant.$valid && pgwdetailForm.tenant.$touched">Valid</span>
+            </div>
+
+            <div>
+                <label class="span-5" title="Directory" class="align-left">Directory:</label>
+                <input style="width:120px" type="text" class="text required" ng-model="outPrefix" name="outPrefix" id="outPrefix" required  />
+                <span class="ad_error">
+                <span ng-if="pgwdetailForm.$submitted && pgwdetailForm.outPrefix.$invalid && pgwdetailForm.outPrefix.$untouched">Required</span>
+                <span ng-if="pgwdetailForm.outPrefix.$invalid && pgwdetailForm.outPrefix.$touched">Invalid</span></span>
+                <span ng-if="pgwdetailForm.outPrefix.$valid && pgwdetailForm.outPrefix.$touched">Valid</span>
+            </div>
+
+            <div>
+                <label class="span-5" title="Files" class="align-left">No. of Files:</label>
+                <input style="width:120px" type="number" class="text required" ng-model="noOfFiles" name="noOfFiles" id="noOfFiles" required  />
+                <span class="ad_error">
+                <span ng-if="pgwdetailForm.$submitted && pgwdetailForm.noOfFiles.$invalid && pgwdetailForm.noOfFiles.$untouched">Required</span>
+                <span ng-if="pgwdetailForm.noOfFiles.$invalid && pgwdetailForm.noOfFiles.$touched">Invalid</span></span>
+                <span ng-if="pgwdetailForm.noOfFiles.$valid && pgwdetailForm.noOfFiles.$touched">Valid</span>
+            </div>
+
+        </div>
+
+        <div class="buttonbar text-center buttonbar">
+            <button type="submit">Add</button>
+            <button type="reset" ng-click="topgw.reset(1)">Reset</button>
+        </div>
+
+    </form>
+    <hr>
+
+
+    <div class="span-10 vspan-2">
+        <label class="align-center">Number of PGWs:</label>
+        <span>{{ topgw.pgwdetails.length }}</span> 
+
+    </div>
+
+    <table ng-show="topgw.pgwdetails.length" class="standard">
+        <thead >
+            <tr>
+                <th>IP Address</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Tenent</th>
+                <th>Directory</th>
+                <th>No. of Files</th>
+                <th style="width:30px !important">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class='pgwdetail' ng-repeat="pgwdetail in topgw.pgwdetails">
+                <td>
+                    <div class="cell" >{{pgwdetail.ipaddr}}</div>
+                </td><td>
+                    <div class="cell" >{{pgwdetail.userName}}</div>
+                </td><td>
+                    <div class="cell" >{{pgwdetail.passwd}}</div>
+                </td><td>
+                    <div class="cell" >{{pgwdetail.tenant}}</div>
+                </td><td>
+                    <div class="cell" >{{pgwdetail.outPrefix}}</div>
+                </td><td>
+                    <div class="cell">{{pgwdetail.noOfFiles}}</div>
+                </td>
+                <td><span class="cell">
+                    <span style="color:blue" ng-click=topgw.edit($index)>&#9998</span>&nbsp;
+                    <span style="color: red" ng-click=topgw.remove($index)>&times;</span>&nbsp;
+                    <span style="color:green">&#10004;</span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+   
+    <p class="ruled"></p>
+    <div class="text-center buttonbar" ng-show="topgw.pgwdetails.length">
+        <button ng-click="topgw.doPrepare()" ng-disabled="topgw.dis_pre_btn">Prepare</button>
+        <button ng-click="topgw.doTransfer()">Transfer</button>
+        <button ng-click="topgw.reset(2)">Reset</button>
+    </div>
+    
+
+</div>
+<!-- <script type="text/javascript" src="static/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="static/js/nsnkit.js"></script>
+<script type="text/javascript" src="static/js/backgrounds.js"></script>
+<script type="text/javascript" src="static/js/panel.js"></script>
+<script type="text/javascript" src="static/js/buttons.js"></script>
+<script type="text/javascript" src="static/js/textinput.js"></script>
+
+<!-- <script type="text/javascript" src="static/js/AngularJS/angular.min.js"></script>
+<script type="text/javascript" src="static/js/AngularJS/angular-ui-router.js"></script>
+<script type="text/javascript" src="static/js/AngularJS/angular-route.min.js"></script> -->
+
+
+<style>
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #0B6DAF; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    /*margin: 0 auto;*/
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); 
+}
+
+</style>

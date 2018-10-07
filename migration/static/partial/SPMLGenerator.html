@@ -1,0 +1,92 @@
+<div  id="spmlGenerator" class="panel-portal">
+    <h1 class="titlebar ng-binding"> SPML Batch File Generator</h1>
+    <hr>
+    <div ng-if="spmlgen.ShowLoader" class="loader"></div>
+    <div >
+        <span class="ad_message" ng-bind="spmlgen.message"></span>
+        <a ng-show="show_result_btn" ui-sref="spmlresult">Show Result</a>
+    </div>
+
+
+    <form name="spmlGenerateForm" ng-submit="spmlgen.doGenerate()" novalidate>
+        <div class="vspan-3">
+            <label class="span-10"  title="Request Type" class="align-left">SPML Request Type:</label>
+                
+                <label ng-repeat="option in spmlgen.requestTypeList">
+                    <input type="radio" data-ng-model="spmlgen.requestType" name="requestType" value="{{option.requestType}}">{{option.name}} &nbsp;</label>
+
+
+
+            <span class="ad_error" ng-show="spmlGenerateForm.requestType.$error.required && spmlgen.submitted">
+                <span ng-message=required> Please select request type </span>
+            </span>
+        </div>
+
+        <div class="vspan-3">
+        <label class="span-10"  title="No. of processes" class="align-left"> Number of Migration Subprocess:</label>
+        <input type="range" name="myrange" id="myid" ng-model="spmlgen.maxWorkers" min="{{min}}" max="{{max}}" step=1 list="vals" data-show-value="true">
+         <output name="myrange" id="myid">{{spmlgen.maxWorkers}}</output>
+        <datalist id="vals">
+            <option ng-repeat="n in [] | range:max">{{n+1}}</option>
+        </data-list>
+        </div>
+        
+
+        <div class="vspan-3">
+        <label class="span-10" title="Outfile prefix" class="align-left">SPML Batch File Prefix:</label>
+             <input style="width:120px" type="text" class="text required" ng-model="spmlgen.outputPrefix" name="outputPrefix" ng-required="true" placeholder="add prefix..."/>
+            <span class="ad_error" ng-if="(spmlGenerateForm.outputPrefix.$touched || spmlGenerateForm.$submitted)  && spmlGenerateForm.outputPrefix.$invalid">Required</span>
+        </div>
+
+        <div class="vspan-3">
+        <label class="span-10"  title="Max no. of records in a outfile" class="align-left">Number of Entries in Each Batch File:</label>
+
+        <button type="button" ng-click="spmlgen.decrement()" ng-disabled="spmlgen.noOfEntries<{{spmlgen.min_recods}}">-</button>
+        <input class="text required" type="number" name="noOfEntries" ng-model="spmlgen.noOfEntries" required style="width:120px">
+        <button type="button" ng-click="spmlgen.increment()" ng-disabled="spmlgen.noOfEntries=='{{spmlgen.max_recods}}'">+</button>
+
+        <span class="ad_error" ng-if="(spmlGenerateForm.noOfEntries.$touched || spmlGenerateForm.$submitted)  && spmlGenerateForm.noOfEntries.$invalid && spmlGenerateForm.noOfEntries.$pristine">Required</span>
+        <span class="ad_error" ng-if="spmlGenerateForm.noOfEntries.$invalid && spmlGenerateForm.noOfEntries.$dirty">Invalid</span>
+
+        </div>
+        <hr>
+
+        <div class="text-center buttonbar">
+            <button type="submit" ng-disabled="spmlgen.dis_gen_btn">Generate</button>
+            <button type="button" ng-click="spmlgen.reset()">Reset</button>
+        </div>
+
+   </form>
+
+
+</div>
+
+
+<!-- <script type="text/javascript" src="static/js/jquery.min.js"></script> -->
+<script type="text/javascript" src="static/js/nsnkit.js"></script>
+<script type="text/javascript" src="static/js/backgrounds.js"></script>
+<script type="text/javascript" src="static/js/panel.js"></script>
+<script type="text/javascript" src="static/js/buttons.js"></script>
+<script type="text/javascript" src="static/js/textinput.js"></script>
+
+<!-- <script type="text/javascript" src="static/js/AngularJS/angular.js"></script>
+<script type="text/javascript" src="static/js/AngularJS/angular-ui-router.js"></script>
+<script type="text/javascript" src="static/js/AngularJS/angular-route.js"></script>
+ -->
+<style>
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #0B6DAF; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    /*margin: 0 auto;*/
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); 
+}
+
+</style>
