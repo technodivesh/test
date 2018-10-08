@@ -24,14 +24,14 @@ def get_user_type(username,password):
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'f18967deeee433fb67a0d6f7422067d7'
 
+# @app.route('/')
+# def index():
+#     print ("I am in index page")
+#     return app.send_static_file('partial/index.html')
+
 @app.route('/')
 def index():
-    print ("I am in index page")
-    return app.send_static_file('partial/index.html')
-
-# @app.route('/home1')
-# def home():
-#     return render_template('home.html')
+    return render_template('index.html')
 
 # @app.route('/')
 # def layout():

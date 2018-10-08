@@ -1,12 +1,6 @@
-<h1>Home Page</h1>
-
 <div ng-controller="logoutController">
 	<a ng-click='logout()' class="btn btn-default">Logout</a>
 </div>
-
-{{myname}}
-
-HHHHHHH
 
 <div class="grid span-42" id="applicationsNavigationView" >
 	<div class="span-8 panel vertical-menu" >
@@ -14,7 +8,7 @@ HHHHHHH
 			<li class="branch expanded">
 				<a href="#">Migration Execution</a>
 				<ul>
-					<li><a id="spmlgenerator" ui-sref="spmlgenerator">Generate SPML Request</a></li>
+					<li><a id="spmlgenerator" ui-sref="home.spmlgenerator">Generate SPML Request</a></li>
 					<li><a id="transfertopgw" ui-sref="transfertopgw">Transfer SPML files to PGW</a></li>
 					<li><a id="transferfrompgw" ui-sref="transferfrompgw">Transfer SPML Response from PGW</a></li>
 					<li><a id="transferfrompgw" ui-sref="mytest">Test Page</a></li>
@@ -37,8 +31,7 @@ HHHHHHH
 		</ul>
 	</div>
 	<div class="span-32 vpush-3" style="margin-left: 20px;">
-		<div ui-view="home-uv"></div>
-		hello
+		<div ui-view></div>
 	</div>
 
 </div>

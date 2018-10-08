@@ -1,6 +1,6 @@
 angular.module('migrationApp').controller('loginController',
   ['$scope', '$location', 'AuthService','$window',
-  function ($scope, $location, AuthService,$window) {
+  function ($scope, $location, AuthService) {
 
     $scope.myname = "Divesh";
 
